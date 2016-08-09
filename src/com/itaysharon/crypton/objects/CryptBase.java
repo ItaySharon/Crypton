@@ -75,6 +75,6 @@ public class CryptBase {
 
 	@Override
 	public String toString() {
-		return "CryptBase [header=" + header + ", body=" + body + ", checksum=" + checksum + "]";
+		return "CryptBase [header=" + header.toString() + ", body=" + body.toString() + ", checksum=" + checksum.toString() + "]";
 	}
 }

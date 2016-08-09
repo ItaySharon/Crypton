@@ -9,19 +9,18 @@ import com.itaysharon.crypton.objects.Body;
 import com.itaysharon.crypton.objects.Checksum;
 import com.itaysharon.crypton.objects.CryptBase;
 import com.itaysharon.crypton.objects.Header;
-import com.itaysharon.crypton.utils.EncryptUtils;
 
 public class Crypton {
 
 	public static void main(String[] args) {
-		String iv = "CryptonG";
-		String key = "33E49B4EA462C9EA2BA372EB";
+		//String iv = "CryptonG";
+		//String key = "33E49B4EA462C9EA2BA372EB";
 		
-		EncryptUtils crypt = new EncryptUtils();
-		String encrypted = crypt.encrypt("test", key, iv);
-		int length = crypt.getLength();
-		Header header = new Header("ItaySharon", "test.cged", "1.0.0", "dataholder", "Data", length);
-		Body body = new Body(encrypted);
+		//EncryptUtils crypt = new EncryptUtils();
+		//String encrypted = crypt.encrypt("test", key, iv);
+		//int length = crypt.getLength();
+		Header header = new Header("ItaySharon", "test.cged", "1.0.0", "dataholder", "Data", 8);
+		Body body = new Body("test1234");
 		Checksum checksum = new Checksum(header.hashCode() + "", body.hashCode() + "");
 		
 		CryptBase main = new CryptBase(header, body, checksum);
@@ -39,5 +38,4 @@ public class Crypton {
 			e.printStackTrace();
 		}
 	}
-
 }
