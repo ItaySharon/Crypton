@@ -39,5 +39,4 @@ public class Verbose {
 			System.err.println("\u001B[31mBad Checksum!\u001B[0m");
 		}
 	}
-
 }

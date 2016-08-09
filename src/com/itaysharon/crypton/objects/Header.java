@@ -3,15 +3,13 @@ package com.itaysharon.crypton.objects;
 public class Header {
 
 	String author, filename, version, type, gemname;
-	int length;
 
-	public Header(String author, String filename, String version, String type, String gemname, int length) {
+	public Header(String author, String filename, String version, String type, String gemname) {
 		this.author = author;
 		this.filename = filename;
 		this.version = version;
 		this.type = type;
 		this.gemname = gemname;
-		this.length = length;
 	}
 
 	public String getAuthor() {
@@ -52,14 +50,6 @@ public class Header {
 
 	public void setGemname(String gemname) {
 		this.gemname = gemname;
-	}
-
-	public int getLength() {
-		return length;
-	}
-
-	public void setLength(int length) {
-		this.length = length;
 	}
 
 	@Override

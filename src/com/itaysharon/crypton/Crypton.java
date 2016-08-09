@@ -9,25 +9,27 @@ import com.itaysharon.crypton.objects.Body;
 import com.itaysharon.crypton.objects.Checksum;
 import com.itaysharon.crypton.objects.CryptBase;
 import com.itaysharon.crypton.objects.Header;
+import com.itaysharon.crypton.utils.EncryptUtils;
 
 public class Crypton {
 
 	public static void main(String[] args) {
-		//String iv = "CryptonG";
-		//String key = "33E49B4EA462C9EA2BA372EB";
 		
-		//EncryptUtils crypt = new EncryptUtils();
-		//String encrypted = crypt.encrypt("test", key, iv);
-		//int length = crypt.getLength();
-		Header header = new Header("ItaySharon", "test.cged", "1.0.0", "dataholder", "Data", 8);
-		Body body = new Body("test1234");
+		String input = "Hellao, World!";
+		String key = "Crypton";
+		
+		EncryptUtils crypt = new EncryptUtils();
+		String encrypted = crypt.encode(input, key);
+
+		Header header = new Header("ItaySharon", "test.cged", "1.0.0", "dataholder", "Data");
+		Body body = new Body(encrypted);
 		Checksum checksum = new Checksum(header.hashCode() + "", body.hashCode() + "");
 		
 		CryptBase main = new CryptBase(header, body, checksum);
 		
 		Gson provider = new Gson();
-		String data = provider.toJson(main, CryptBase.class);
-		File file = new File(main.getHeader().getFilename());
+		String data = provider.toJson(main, CryptBase.class); // 
+		File file = new File(main.getHeader().getFilename()); // 
 		try {
 			if(!file.exists())
 				file.createNewFile();
@@ -37,5 +39,6 @@ public class Crypton {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("done!");
 	}
 }
