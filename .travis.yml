@@ -6,4 +6,6 @@ jdk:
 os:
   - linux
   - windows
-script: ant build
+script:
+- ant Crypton
+- ant Verbose

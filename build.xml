@@ -51,4 +51,9 @@
             <classpath refid="Crypton.classpath"/>
         </java>
     </target>
+    <target name="Verbose">
+        <java classname="com.itaysharon.crypton.Verbose" failonerror="true" fork="yes">
+            <classpath refid="Crypton.classpath"/>
+        </java>
+    </target>
 </project>
