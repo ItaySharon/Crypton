@@ -3,7 +3,7 @@ package com.itaysharon.crypton.objects;
 public class CryptBase {
 
 	Header header;
-	Body body;
+	Body body;asdw
 	Checksum checksum;
 	
 	public CryptBase(Header header, Body body, Checksum checksum) {
