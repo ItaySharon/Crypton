@@ -1,7 +1,10 @@
 package com.itaysharon.crypton;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.PrintStream;
 
 import com.google.gson.Gson;
 import com.itaysharon.crypton.objects.CryptBase;
@@ -13,7 +16,12 @@ public class Verbose {
 	static boolean bodyValid = false;
 
 	public static void main(String[] args) throws Exception {
-		BufferedReader br = new BufferedReader(new FileReader("test.cged"));
+		File out = new File("verbose.txt");
+		FileOutputStream fos = new FileOutputStream(out);
+		PrintStream outStream = new PrintStream(fos);
+		System.setOut(outStream);
+		
+		BufferedReader br = new BufferedReader(new FileReader(args[0]));
 		try {
 			StringBuilder sb = new StringBuilder();
 			String line = br.readLine();
@@ -34,9 +42,11 @@ public class Verbose {
 				+ (headerValid = data.getChecksum().getHeader().equals(data.getHeader().hashCode() + "")) + "], Body: ["
 				+ (bodyValid = data.getChecksum().getBody().equals(data.getBody().hashCode() + "")) + "]");
 		if(headerValid && bodyValid) {
-			System.out.println("\u001B[32mChecksum OK!\u001B[0m");
+			//System.out.println("\u001B[32mChecksum OK!\u001B[0m");
+			System.out.println("Checksum OK!");
 		} else {
-			System.err.println("\u001B[31mBad Checksum!\u001B[0m");
+			//System.err.println("\u001B[31mBad Checksum!\u001B[0m");
+			System.out.println("Bad Checksum!");
 		}
 	}
 }
