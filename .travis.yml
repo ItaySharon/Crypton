@@ -1,9 +1,7 @@
 language: java
 jdk:
-  - openjdk8
+  - openjdk6
 os:
   - linux
   - windows
-script:
-- ant Crypton
-- ant Verbose
+script: ant nuild
