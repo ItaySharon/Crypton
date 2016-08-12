@@ -21,7 +21,7 @@ public class Verbose {
 		PrintStream outStream = new PrintStream(fos);
 		System.setOut(outStream);
 		
-		BufferedReader br = new BufferedReader(new FileReader(args[0]));
+		BufferedReader br = new BufferedReader(new FileReader("test.cged"));
 		try {
 			StringBuilder sb = new StringBuilder();
 			String line = br.readLine();

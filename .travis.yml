@@ -1,7 +1,10 @@
 language: java
 jdk:
-  - openjdk6
+  - oraclejdk8
 os:
   - linux
   - windows
-script: ant nuild
+script:
+- ant clean
+- ant build
+- ant build-jar

@@ -28,8 +28,8 @@ public class Crypton {
 		CryptBase main = new CryptBase(header, body, checksum);
 		
 		Gson provider = new Gson();
-		String data = provider.toJson(main, CryptBase.class); // 
-		File file = new File(main.getHeader().getFilename()); // 
+		String data = provider.toJson(main, CryptBase.class);
+		File file = new File(main.getHeader().getFilename());
 		try {
 			if(!file.exists())
 				file.createNewFile();
